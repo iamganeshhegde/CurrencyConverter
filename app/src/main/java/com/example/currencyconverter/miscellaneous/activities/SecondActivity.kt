@@ -20,36 +20,72 @@ fun main() {
 
 //    plusOne(intArrayOf(9))
 //    var a ="5"
-    var aa = BigInteger("5")
-    var bb = BigInteger("3")
+//    var aa = BigInteger("5")
+//    var bb = BigInteger("3")
 //
-    println(addBinary(aa.toString(), bb.toString()))
-
-
-    val b1: BigInteger
-    b1 = BigInteger("321456")
-
-    // create radix
-
-
-    println(b1.toString())
+//    println(addBinary(aa.toString(), bb.toString()))
+//
+//
+//    val b1: BigInteger
+//    b1 = BigInteger("321456")
 
     // create radix
-    val radix = 2
+
+
+//    println(b1.toString())
+
+    // create radix
+//    val radix = 2
 
     // apply toString(radix) method
 
     // apply toString(radix) method
-    val b1String = b1.toString(radix)
+//    val b1String = b1.toString(radix)
 
     // print String
 
     // print String
-    println(
-        "Binary String of BigInteger "
-                + b1 + " is equal to " + b1String
-    )
+//    println(
+//        "Binary String of BigInteger "
+//                + b1 + " is equal to " + b1String
+//    )
 
+
+
+    println(shuffle(intArrayOf(2,5,1,3,4,7),3).iterator().forEach { println(it) })
+
+//    var result = 0
+//    for (i in 0 until n) {
+//        result = result xor  A.get(i)
+//    }
+//    return result
+
+
+}
+
+fun shuffle(nums: IntArray, n: Int): IntArray {
+
+    var array = IntArray(nums.size)
+
+    var j=n
+    var i=0
+    var k=0
+
+
+    while(i <= n &&  j < nums.size && k < nums.size) {
+        if(k%2 == 0) {
+            array[k] = nums[i]
+            k++
+            i++
+        } else {
+            array[k] = nums[j]
+            k++
+            j++
+        }
+
+    }
+
+    return array
 
 }
 
