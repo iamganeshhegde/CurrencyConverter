@@ -1,37 +1,78 @@
 package com.example.currencyconverter
 
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.example.currencyconverter.miscellaneous.activities.SecondActivity
+import com.example.currencyconverter.viewmodel.RandomViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 
-//class MainActivity : AppCompatActivity() {
-//    var akkk = 5888
-//    var abcd: String = "123"
-//
-//
-//    private val model: RandomViewModel by viewModels()
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        setTheme(R.style.Theme_CurrencyConverter_NoActionBar);
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_main)
-//        var akkk = "aaa"
-//
-//        abcd.toInt()
-//
-//        var split = akkk.toString().split("")
-//
-//
-//        val statusObserver = Observer<String> {
-//
-//            txtContact.text = it
-//        }
-//
-//
-//        model.status.observe(this, statusObserver)
-//
-//
-//    }
-//
-//
-//}
+class MainActivity : AppCompatActivity() {
+    var akkk = 5888
+    var abcd: String = "123"
+
+
+    private val model: RandomViewModel by viewModels()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme_CurrencyConverter_NoActionBar);
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        var akkk = "aaa"
+
+        abcd.toInt()
+
+        var split = akkk.toString().split("")
+
+
+        val statusObserver = Observer<String> {
+
+            txtContact.text = it
+        }
+
+
+        model.status.observe(this, statusObserver)
+
+
+    }
+
+
+
+    var canvas = Canvas()
+
+    private val textPaint =
+        Paint().apply {
+            isAntiAlias = true
+            color = Color.RED
+            style = Paint.Style.STROKE
+        }
+
+
+}
+
+fun handleOnBackPressed(): Boolean {
+    var a = true
+
+    return (a!= true).also {
+        a.toString()
+    }
+
+
+    return if (a != true) {
+        a.toString()
+//        navigationView.selectHomeDestination()
+        true
+    } else {
+        false
+    }
+}
+
+private fun Boolean.call(): Unit {
+    a.toString()
+}
 
 var a: click = { a, b ->
     a + b
@@ -82,7 +123,7 @@ fun main() {
 //    println(b(5))
 //
 //
-    println(sum(10,2))
+//    println(sum(10,2))
 
 
 

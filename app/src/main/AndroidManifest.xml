@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CurrencyConverter">
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeActivity"
             android:theme="@style/splashScreenTheme"
             android:exported="true">
             <intent-filter>
