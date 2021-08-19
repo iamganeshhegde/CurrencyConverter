@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 
+
 class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +29,27 @@ fun main() {
 
     println(numberMiss(intArrayOf(3,4,2,0,1,6)))
 
+}
+
+//numbers and frequency
+fun decompressRLElist(nums: IntArray): IntArray? {
+    var arrSize = 0
+    run {
+        var i = 0
+        while (i < nums.size) {
+            arrSize += nums[i]
+            i += 2
+        }
+    }
+    val result = IntArray(arrSize)
+    var startIdx = 0
+    var i = 0
+    while (i < nums.size) {
+        Arrays.fill(result, startIdx, startIdx + nums[i], nums[i + 1])
+        startIdx += nums[i]
+        i += 2
+    }
+    return result
 }
 
 
