@@ -57,6 +57,7 @@ fun numberMiss(nums:IntArray): Int {
     return res
 }
 
+//map value of intarray to string
 fun mapping() {
 
     var input = "codeleet"
