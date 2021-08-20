@@ -24,13 +24,58 @@ fun main() {
 //    radixSort()
 
 
-    var a:String ="a"
-    var b = "b"
-    var answer = b[0].code - a[0].code
+//    var a:String ="a"
+//    var b = "b"
+//    var answer = b[0].code - a[0].code
+//
+//    println(answer)
 
-    println(answer)
+
+
+    println(countMatches(listOf(listOf("phone","blue","pixel"), listOf("computer","silver","lenovo"),
+        listOf("phone","gold","iphone")),
+        "color",
+        "silver"))
 
 }
+
+
+
+fun countMatches(items: List<List<String>>, ruleKey: String, ruleValue: String): Int {
+
+
+    var result = 0
+
+
+    for(i in 0 until items.size) {
+
+        if(ruleKey.equals("type")) {
+
+            if(ruleValue.equals(items[i][0])) {
+                result++
+            }
+
+
+        }else if(ruleKey.equals("color")) {
+            if(ruleValue.equals(items[i][1])) {
+                result++
+            }
+
+        }else if(ruleKey.equals("name")) {
+            if(ruleValue.equals(items[i][2])) {
+                result++
+            }
+
+        }
+
+    }
+
+    return result
+
+
+}
+
+
 
 
 
