@@ -16,6 +16,12 @@ internal class SecondActivity {
 
 fun main() {
 
+
+//    search(0,5,kotlin.intArrayOf(1,2,4,5,6),3)
+
+
+    kotlin.io.println(searchInsert(kotlin.intArrayOf(1,3,5,7), 6))
+
 //    println(isValid("()"))
 
 //    plusOne(intArrayOf(9))
@@ -52,7 +58,7 @@ fun main() {
 
 
 
-    println(shuffle(intArrayOf(2,5,1,3,4,7),3).iterator().forEach { println(it) })
+//    println(shuffle(intArrayOf(2,5,1,3,4,7),3).iterator().forEach { println(it) })
 
 //    var result = 0
 //    for (i in 0 until n) {
@@ -62,6 +68,58 @@ fun main() {
 
 
 }
+
+
+fun search(start:Int, end:Int, nums: IntArray, target: Int) {
+
+    if(start>end) {
+        return
+        println( start+1)
+    }
+
+    var answer = start
+
+    var middle:Int = (start+end-1)/2
+
+    var middleNumber = nums.get(middle)
+
+    if(middleNumber == target) {
+        println(middle)
+    } else if(target < middleNumber) {
+        search(start, middle,nums, target)
+
+    } else if(target >= middleNumber){
+        search(middle+1, end ,nums, target)
+    }
+}
+
+
+fun searchInsert(nums: IntArray, target: Int): Int {
+
+
+    var answer = 0
+    var low =0
+    var high = nums.size
+
+    while(low < high) {
+
+        var mid = (low+high-1)/2
+        if(nums[mid] == target) {
+            answer = mid
+            return answer
+        } else if(target < nums[mid]) {
+            high = mid
+            answer = high
+        } else {
+            low = mid+1
+            answer = low
+        }
+
+    }
+    return answer
+}
+
+
 
 fun shuffle(nums: IntArray, n: Int): IntArray {
 
