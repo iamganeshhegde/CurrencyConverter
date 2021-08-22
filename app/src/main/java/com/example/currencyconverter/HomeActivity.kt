@@ -1,19 +1,141 @@
 package com.example.currencyconverter
 
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.currencyconverter.joke.APIService
+import com.example.currencyconverter.joke.APIService.Companion.base_new
+import com.example.currencyconverter.joke.Jokes
+import com.example.currencyconverter.joke.NewUser
+import com.google.gson.Gson
+import io.reactivex.Observer
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_home.*
+import okhttp3.*
+import okhttp3.Interceptor.*
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import retrofit2.converter.gson.GsonConverterFactory
+import java.io.File
+import java.util.concurrent.TimeUnit
+import io.reactivex.functions.Function;
 import java.util.*
 
 
 class HomeActivity : AppCompatActivity() {
 
+    var textView: TextView? = null
+
+    var apiService: APIService? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        textView = findViewById(R.id.textView)
 
-
+        setupRetrofitAndOkHttp()
+        buttonJoke.setOnClickListener(View.OnClickListener { getRandomJokeFromAPI() })
     }
 
+    private fun setupRetrofitAndOkHttp() {
+        val httpLoggingInterceptor = HttpLoggingInterceptor()
+        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+        val httpCacheDirectory = File(cacheDir, "offlineCache")
+
+        //10 MB
+        val cache = Cache(httpCacheDirectory, 10 * 1024 * 1024)
+        val httpClient: OkHttpClient = OkHttpClient.Builder()
+            .cache(cache)
+            .addInterceptor(httpLoggingInterceptor)
+            .addNetworkInterceptor(provideCacheInterceptor())
+            .addInterceptor(provideOfflineCacheInterceptor())
+            .build()
+        val retrofit: Retrofit = Retrofit.Builder()
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(Gson()))
+            .client(httpClient)
+//            .baseUrl(BASE_URL)
+            .baseUrl(base_new)
+            .build()
+        apiService = retrofit.create(APIService::class.java)
+    }
+
+    fun getRandomJokeFromAPI() {
+//        val observable = apiService!!.getRandomJoke("random")
+        val observable = apiService!!.getUser()
+        observable.subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread())
+            .map(object : Function<NewUser?, String?> {
+                @Throws(Exception::class)
+                override fun apply(user: NewUser): String? {
+                    return user.name
+                }
+            }).subscribe(object : Observer<String?> {
+                override fun onSubscribe(d: Disposable) {}
+
+                override fun onError(e: Throwable) {
+                    Toast.makeText(
+                        applicationContext,
+                        "An error occurred in the Retrofit request. Perhaps no response/cache",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                    Log.i("Error in user", e.toString())
+                }
+
+                override fun onComplete() {}
+                override fun onNext(t: String) {
+                    textView!!.text = t
+                }
+
+            })
+    }
+    private fun provideCacheInterceptor(): Interceptor {
+        return Interceptor { chain ->
+            var request: Request = chain.request()
+            val originalResponse: Response = chain.proceed(request)
+            val cacheControl: String? = originalResponse.header("Cache-Control")
+            if (cacheControl == null || cacheControl.contains("no-store") || cacheControl.contains("no-cache") ||
+                cacheControl.contains("must-revalidate") || cacheControl.contains("max-stale=0")
+            ) {
+                val cc: CacheControl = CacheControl.Builder()
+                    .maxStale(1, TimeUnit.DAYS)
+                    .build()
+                request = request.newBuilder()
+                    .cacheControl(cc)
+                    .build()
+                chain.proceed(request)
+            } else {
+                 originalResponse.newBuilder()
+                    .header("Cache-Control", "public, max-stale=" + 60 * 60 * 24)
+                     .removeHeader("Pragma")
+                    .build();
+            }
+        }
+    }
+
+
+    private fun provideOfflineCacheInterceptor(): Interceptor {
+        return Interceptor { chain ->
+            try {
+                return@Interceptor chain.proceed(chain.request())
+            } catch (e: Exception) {
+                val cacheControl: CacheControl = CacheControl.Builder()
+                    .onlyIfCached()
+                    .maxStale(1, TimeUnit.DAYS)
+                    .build()
+                val offlineRequest: Request = chain.request().newBuilder()
+                    .cacheControl(cacheControl)
+                    .build()
+                return@Interceptor chain.proceed(offlineRequest)
+            }
+        }
+    }
 }
 
 
