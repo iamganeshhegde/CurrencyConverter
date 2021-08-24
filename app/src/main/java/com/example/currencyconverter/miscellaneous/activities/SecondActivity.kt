@@ -14,13 +14,26 @@ internal class SecondActivity {
     }
 }
 
+//fun trailingZeroes(n: Int): Int {
+//    val n = n
+//    var count = 0
+//    while (n != 0) {
+//        val tmp = n / 5
+//        count += tmp
+//        n = tmp
+//    }
+//    return count
+
+//
+//}
+
 fun main() {
 
 
 //    search(0,5,kotlin.intArrayOf(1,2,4,5,6),3)
 
 
-    kotlin.io.println(searchInsert(kotlin.intArrayOf(1,3,5,7), 6))
+//    kotlin.io.println(searchInsert(kotlin.intArrayOf(1,3,5,7), 6))
 
 //    println(isValid("()"))
 
@@ -67,6 +80,71 @@ fun main() {
 //    return result
 
 
+
+    //swap
+//    com.example.currencyconverter.miscellaneous.activities.swap(1,2)
+
+
+//    var a = "aaa"
+
+
+//   println(
+//       countNegatives(arrayOf(intArrayOf(4,3,2,-1), intArrayOf(3,2,1,-1), intArrayOf(1,1,-1,-2),
+//       intArrayOf(-1,-1,-2,-3)))
+//   )
+
+
+    kotlin.io.println(hammingWeight(521))
+
+}
+
+
+fun countNegatives(grid: Array<IntArray>): Int {
+
+    var count = 0
+
+    for(i in 0 until grid.size) {
+
+
+        for(j in 0 until grid[i].size-1) {
+            if(grid[i][j] < 0) {
+                count++
+            }
+        }
+
+    }
+
+
+    return count
+}
+
+
+fun hammingWeight(n:Int):Int {
+
+    var sum = 0
+    var number = n
+    while (number != 0) {
+        sum++
+        number = number and (number - 1)
+    }
+    return sum
+}
+
+//fun titleToNumber(s: String): Int {
+//    val result = 0
+//    for (i in 0 until s.length) {
+//        result = result * 26 + (s[i] - 'A' + 1)
+//    }
+//    return result
+//}
+
+
+fun swap( a:Int, b:Int) {
+//    var aa = a
+//    var bb = b
+//    aa=aa+bb-(bb=aa)
+//
+//    println("a -$aa,  b- $bb")
 }
 
 
