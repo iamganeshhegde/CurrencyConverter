@@ -94,8 +94,12 @@ fun main() {
 //   )
 
 
-    kotlin.io.println(hammingWeight(521))
+//    kotlin.io.println(hammingWeight(521))
 
+//    checkExtraChar()
+
+
+    kotlin.io.println(convertToTitle(12))
 }
 
 
@@ -130,6 +134,47 @@ fun hammingWeight(n:Int):Int {
     return sum
 }
 
+
+fun checkExtraChar() {
+    var string = "abcd"
+    var shuffle = "bdacf"
+    var count1 = 0
+    var count2 = 0
+
+    for (i in 0 until string.length) {
+         count1 += string[i] - 'a'
+    }
+
+    for(i in 0 until shuffle.length) {
+        count2 += shuffle[i] - 'a'
+    }
+    var aa = (count2 - count1)
+
+    var answer = aa + 97
+
+    println(answer.toChar())
+
+
+
+
+}
+
+
+//fun findTheDifference(s: String, t: String): Char {
+//    val sum_s = 'a'
+//    var sum_t = 'a'
+//    var i = 0
+//    while (i < s.length) {
+//        sum_s += s[i]
+//        sum_t += t[i]
+//        i++
+//    }
+//    sum_t += t[i]
+//    return (sum_t - sum_s) as Char
+//}
+
+
+
 //fun titleToNumber(s: String): Int {
 //    val result = 0
 //    for (i in 0 until s.length) {
@@ -145,6 +190,18 @@ fun swap( a:Int, b:Int) {
 //    aa=aa+bb-(bb=aa)
 //
 //    println("a -$aa,  b- $bb")
+}
+
+
+fun convertToTitle(n: Int): String? {
+    var nn = n
+    var result = ""
+    while (nn > 0) {
+        nn--
+        result = ('A'.toInt() + nn % 26).toChar().toString()+result
+        nn = nn / 26
+    }
+    return result
 }
 
 
