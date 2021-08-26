@@ -2,6 +2,8 @@ package com.example.currencyconverter.miscellaneous.activities
 
 import com.example.currencyconverter.miscellaneous.newactivities.ThirdActivity
 import java.math.BigInteger
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 internal class SecondActivity {
@@ -387,5 +389,15 @@ fun isValid(s: String): Boolean {
 
     return false
 
+
+}
+
+
+fun aaaa() {
+    var a = intArrayOf(1,2,3,4)
+
+//    var tree = TreeSet<Int>(a)
+//
+//    println(tree)
 
 }
