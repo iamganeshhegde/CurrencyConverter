@@ -91,8 +91,7 @@ fun main() {
     }
 
 
-    var builder = StringBuilder()
-    builder.replace(" ","")
+    string.replace(" ","")
 
 
 
