@@ -16,6 +16,18 @@ fun main() {
 
 
 
+    nothing()
+
+    var stack = Stack<Int>()
+
+
+
+
+
+}
+
+
+fun nothing () {
     var a = 1
     var b = 5
 
@@ -26,8 +38,14 @@ fun main() {
 
     var num = 10_000_000_000
 
-}
+    var list = LinkedList<Int>()
 
+    list.add(1)
+    list.add(2)
+    list.add(3)
+    list.addFirst(1)
+    println(list)
+}
 
 
 
