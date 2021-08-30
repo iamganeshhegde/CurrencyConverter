@@ -104,6 +104,18 @@ class SimpleHashTable {
         var employee = hashtable[keyyy]?.emplyee
         hashtable[keyyy] = null
 
+
+
+        var oldHashTable = hashtable
+        hashtable = arrayOfNulls<StoredEmployee>(hashtable.size)
+
+
+        for(i in 0 until oldHashTable.size) {
+            if(oldHashTable[i] != null) {
+                put(oldHashTable[i]!!.key, oldHashTable[i]!!.emplyee)
+            }
+        }
+
         return employee
 
 
