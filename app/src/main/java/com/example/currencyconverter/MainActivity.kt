@@ -7,9 +7,12 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.example.currencyconverter.miscellaneous.TrimDelegate
 import com.example.currencyconverter.miscellaneous.activities.SecondActivity
 import com.example.currencyconverter.viewmodel.RandomViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.properties.ReadWriteProperty
+import kotlin.reflect.KProperty
 
 class MainActivity : AppCompatActivity() {
     var akkk = 5888
@@ -98,8 +101,17 @@ fun main() {
 
 
 //
-//    var newString :String by TrimDelegate()
-//    var a:Int? = 0
+    var newString :String by TrimDelegate()
+    newString = "Ganesh"
+    var a:Int? = 0
+
+    var delegeate:String by Del()
+
+
+    delegeate = "Ganesh "
+    println(delegeate)
+
+    println(newString)
 //
 //    var b = a?.also {
 //        println("abcd")
@@ -230,3 +242,21 @@ typealias clickedtwice = (a: Int)  -> Int
 //function literals where (other:Int - 2) is a parameter with receiver type Int - 10
 // 'this' is the reference to 10(Int) and other is a parameter
 var sum  = fun Int.(other:Int) : Int = this+other
+
+
+class Del:ReadWriteProperty<Any?, String> {
+
+    var aluee =""
+
+    override fun getValue(thisRef: Any?, property: KProperty<*>): String {
+        return aluee
+    }
+
+    override fun setValue(thisRef: Any?, property: KProperty<*>, value: String) {
+        aluee = value+"hello"
+
+    }
+
+
+
+}
