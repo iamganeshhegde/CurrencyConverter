@@ -2,6 +2,8 @@ package com.example.currencyconverter.miscellaneous.newactivities;
 
 import com.example.currencyconverter.miscellaneous.model.Employee;
 
+import java.util.List;
+
 public class ArrayTest {
 
 
@@ -13,6 +15,8 @@ public class ArrayTest {
 
     }
 
+
+//    List<Integer>[] buckets = new List[10]
 
 }
 
