@@ -57,14 +57,32 @@ fun main() {
     }
 
 
+    var remove = mutableListOf<Employee>()
     var map = mutableMapOf<Int,Employee>()
 
     for (i in 0 until linkedList.size) {
-        map.put(linkedList[i].id, linkedList[i])
+        if(map.containsKey(linkedList[i].id)) {
+            remove.add(linkedList[i])
+        } else {
+            map[linkedList[i].id] = linkedList[i]
+        }
     }
 
     println()
     map.iterator().forEach {
+        println(it)
+    }
+
+    println()
+
+    for (i in remove) {
+        linkedList.remove(i)
+    }
+
+
+    println()
+
+    linkedList.iterator().forEach {
         println(it)
     }
 
