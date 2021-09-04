@@ -36,6 +36,4 @@ fun sumOfUnique(nums: IntArray): Int {
 
     return sum
 
-
-
 }
