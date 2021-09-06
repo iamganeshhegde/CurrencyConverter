@@ -116,7 +116,6 @@ fun merge(l1: ListNode?, l2: ListNode?):ListNode? {
 
              temp = temp?.next
 
-
          }
 
 
