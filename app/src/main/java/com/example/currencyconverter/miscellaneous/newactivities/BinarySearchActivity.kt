@@ -37,3 +37,14 @@ fun binarySearch(array: IntArray, start: Int, end: Int) {
     println("end")
 
 }
+
+
+fun numJewelsInStones(jewels: String, stones: String): Int {
+    var num = 0
+    for (i in 0 until stones.length) {
+        if (jewels.indexOf(stones[i]) != -1) {
+            num++
+        }
+    }
+    return num
+}
