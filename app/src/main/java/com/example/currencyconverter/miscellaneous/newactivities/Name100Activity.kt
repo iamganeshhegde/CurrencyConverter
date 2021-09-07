@@ -10,11 +10,12 @@ fun main() {
     var array = arrayOf(name)
 
 
-//    print(String.format("%010d",0).replace("0","Ganesh\n"));
+//    print(String.format("%010d",0).replace("0","Ganesh\n")); // print name n times without loop
 
 
 //    println(String.format("%010d", 777).replace('0', '*'))
-    println(String.format("%$10d", 777).replace('0', '*')) // not usable
+    println(String.format("%0100d", 1).replace('0', '*'))
+//    println(String.format("%$10d", 777).replace('0', '*')) // not usable
 
 
     var string = "Hello/gg/jj/"
