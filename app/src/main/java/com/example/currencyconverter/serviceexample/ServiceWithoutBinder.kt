@@ -2,9 +2,11 @@ package com.example.currencyconverter.serviceexample
 
 import android.app.Service
 import android.content.Intent
+import android.content.ServiceConnection
 import android.media.MediaPlayer
 import android.os.IBinder
 import android.provider.Settings
+import java.util.concurrent.Executor
 
 class ServiceWithoutBinder: Service() {
 
@@ -34,5 +36,18 @@ class ServiceWithoutBinder: Service() {
             player.stop()
         }
 
+    }
+
+    override fun bindService(service: Intent?, conn: ServiceConnection, flags: Int): Boolean {
+        return super.bindService(service, conn, flags)
+    }
+
+    override fun bindService(
+        service: Intent,
+        flags: Int,
+        executor: Executor,
+        conn: ServiceConnection
+    ): Boolean {
+        return super.bindService(service, flags, executor, conn)
     }
 }
