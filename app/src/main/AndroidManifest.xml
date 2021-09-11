@@ -14,8 +14,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CurrencyConverter">
-        <activity
+        <!--<activity
             android:name=".FirstActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>-->
+
+        <activity
+            android:name=".MyBoundServiceActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,6 +40,10 @@
             android:foregroundServiceType="microphone"/>
 
         <service android:name=".serviceexample.BoundService"/>
+
+        <service android:name=".serviceexample.MyBoundService"/>
+
+        <activity android:name=".ResultActivity"/>
     </application>
 
 </manifest>
