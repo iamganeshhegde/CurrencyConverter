@@ -1,25 +1,13 @@
-package com.example.currencyconverter
+package com.example.currencyconverter.miscellaneous
 
-import android.Manifest
 import android.content.*
-import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.IBinder
-import android.util.Log
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
-import android.widget.LinearLayout
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.example.currencyconverter.R
 import com.example.currencyconverter.serviceexample.BoundService
-import com.example.currencyconverter.serviceexample.ServiceDemo
-import com.example.currencyconverter.serviceexample.ServiceWithoutBinder
-import kotlinx.android.synthetic.main.activity_first.*
 
 
 class FirstActivity: AppCompatActivity() {
