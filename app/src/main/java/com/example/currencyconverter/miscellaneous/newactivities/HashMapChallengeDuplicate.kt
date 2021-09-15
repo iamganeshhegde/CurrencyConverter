@@ -1,6 +1,18 @@
 package com.example.currencyconverter.miscellaneous.newactivities
 
-class HashMapChallengeDuplicate {
+import android.os.Bundle
+import androidx.activity.result.ActivityResultCallback
+import androidx.activity.result.contract.ActivityResultContract
+import androidx.appcompat.app.AppCompatActivity
+
+class HashMapChallengeDuplicate:AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+
+    }
+
 }
 
 fun main(){

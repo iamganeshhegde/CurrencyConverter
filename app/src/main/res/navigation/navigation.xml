@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/questionFragment">
+    <fragment
+        android:id="@+id/questionFragment"
+        android:name="com.example.currencyconverter.miscellaneous.newactivities.QuestionFragment"
+        android:label="QuestionFragment" >
+        <action
+            android:id="@+id/action_questionFragment_to_wrongFragment"
+            app:destination="@id/wrongFragment" />
+        <action
+            android:id="@+id/action_questionFragment_to_correctFargment"
+            app:destination="@id/correctFargment" />
+    </fragment>
+    <fragment
+        android:id="@+id/correctFargment"
+        android:name="com.example.currencyconverter.miscellaneous.newactivities.CorrectFargment"
+        android:label="CorrectFargment" >
+        <action
+            android:id="@+id/action_correctFargment_to_questionFragment"
+            app:destination="@id/questionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wrongFragment"
+        android:name="com.example.currencyconverter.miscellaneous.newactivities.WrongFragment"
+        android:label="WrongFragment" >
+        <action
+            android:id="@+id/action_wrongFragment_to_questionFragment"
+            app:destination="@id/questionFragment" />
+    </fragment>
+</navigation>
