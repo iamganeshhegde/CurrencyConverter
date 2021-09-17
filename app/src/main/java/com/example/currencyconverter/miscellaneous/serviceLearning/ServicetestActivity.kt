@@ -1,6 +1,8 @@
 package com.example.currencyconverter.miscellaneous.serviceLearning
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.currencyconverter.R
@@ -32,6 +34,7 @@ class ServicetestActivity:AppCompatActivity() {
         recycler_posts.setHasFixedSize(true)
         recycler_posts.setLayoutManager(LinearLayoutManager(this))
         fetchData()
+
     }
 
     private fun fetchData() {
