@@ -47,6 +47,4 @@ fun intersection(nums1: IntArray, nums2: IntArray): IntArray {
 
     return intArray.toIntArray()
 
-
-
 }
