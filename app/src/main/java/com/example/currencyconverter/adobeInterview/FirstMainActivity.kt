@@ -3,6 +3,7 @@ package com.example.currencyconverter.adobeInterview
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.currencyconverter.R
+import java.util.*
 
 
 class FirstMainActivity:AppCompatActivity() {
@@ -74,4 +75,28 @@ fun findWords(words: Array<String>): Array<String> {
         )
     }
     return results.toTypedArray()
+}
+
+
+fun findWordss(words: Array<String>): Array<String>? {
+    val strs = arrayOf("QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM")
+    val map: MutableMap<Char, Int> = HashMap()
+    for (i in strs.indices) {
+        for (c in strs[i].toCharArray()) {
+            map[c] = i //put <char, rowIndex> pair into the map
+        }
+    }
+    val res: MutableList<String> = LinkedList()
+    for (w in words) {
+        if (w == "") continue
+        var index = map[w.toUpperCase()[0]]!!
+        for (c in w.toUpperCase().toCharArray()) {
+            if (map[c] != index) {
+                index = -1 //don't need a boolean flag.
+                break
+            }
+        }
+        if (index != -1) res.add(w) //if index != -1, this is a valid string
+    }
+    return res.toTypedArray()
 }
