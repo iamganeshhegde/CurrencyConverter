@@ -32,6 +32,8 @@ fun main() {
         println(it)
     }
 
+
+
 }
 
 fun intersection(nums1: IntArray, nums2: IntArray): IntArray {
