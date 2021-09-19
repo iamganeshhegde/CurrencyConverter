@@ -26,11 +26,48 @@ fun main() {
 //        println(it)
 //    }
 
+    var first = intArrayOf(1,9,3,4)
+    var second = intArrayOf(8,7,6,5)
 
-    var findWords = findWords(arrayOf("Hello"))
-    findWords.iterator().forEach {
+    var nest = arrayOf(intArrayOf(1,2,3), intArrayOf(7,1,9), intArrayOf(7,3,5), intArrayOf(5,6,7))
+
+
+    Arrays.sort(nest){
+        one,two -> one[1]- two[1]
+    }
+
+
+    first.iterator().forEach {
         println(it)
     }
+
+    println()
+
+    nest.iterator().forEach {
+        it.iterator().forEach {
+                char ->
+            print(char)
+        }
+        println()
+
+    }
+
+//
+//    for (i in 0 .. 8) {
+//        if(i<2){
+//            continue
+//        }
+//
+//        println(i)
+//    }
+
+
+//    var findWords = findWords(arrayOf("Hello"))
+//    findWords.iterator().forEach {
+//        it.iterator().forEach {
+//            char ->
+//            print(char) }
+//    }
 
 
 
@@ -101,4 +138,45 @@ fun findWordss(words: Array<String>): Array<String>? {
         if (index != -1) res.add(w) //if index != -1, this is a valid string
     }
     return res.toTypedArray()
+}
+
+
+fun maximumUnits(boxTypes: Array<IntArray>, truckSize: Int): Int {
+    var truckSize = truckSize
+    val unitCount = IntArray(1001)
+    for (boxType in boxTypes) {
+        unitCount[boxType[1]] += boxType[0]
+    }
+    var count = 0
+    for (i in unitCount.indices.reversed()) {
+        if (unitCount[i] == 0) continue
+        val num = Math.min(unitCount[i], truckSize)
+        count += num * i
+        truckSize -= num
+        if (truckSize == 0) break
+    }
+    return count
+}
+
+
+fun maximumUnitss(boxTypes: Array<IntArray>, truckSize: Int): Int {
+    var truckSize = truckSize
+    Arrays.sort(
+        boxTypes
+    ) { x: IntArray, y: IntArray -> y[1] - x[1] }
+    var count = 0
+    val size = boxTypes.size
+    var i = 0
+    while (i < size && truckSize > 0) {
+        val boxes = boxTypes[i][0]
+        val units = boxTypes[i][1]
+        truckSize -= boxes
+        count += boxes * units
+        if (truckSize < 0) {
+            count += truckSize * units
+            break
+        }
+        ++i
+    }
+    return count
 }
