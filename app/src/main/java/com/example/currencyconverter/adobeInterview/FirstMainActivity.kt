@@ -12,6 +12,8 @@ class FirstMainActivity:AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_first_main)
+
+//        this.cacheDir.deleteRecursively()
     }
 
 
@@ -180,3 +182,22 @@ fun maximumUnitss(boxTypes: Array<IntArray>, truckSize: Int): Int {
     }
     return count
 }
+
+//fun sumOfLeftLeaves(root: TreeNode?): Int {
+//    if (root == null) return 0
+//    var ans = 0
+//    val stack: Stack<TreeNode> = Stack<TreeNode>()
+//    stack.push(root)
+//    while (!stack.empty()) {
+//        val node: TreeNode = stack.pop()
+//        if (node.left != null) {
+//            if (node.left.left == null && node.left.right == null) ans += node.left.`val` else stack.push(
+//                node.left
+//            )
+//        }
+//        if (node.right != null) {
+//            if (node.right.left != null || node.right.right != null) stack.push(node.right)
+//        }
+//    }
+//    return ans
+//}
