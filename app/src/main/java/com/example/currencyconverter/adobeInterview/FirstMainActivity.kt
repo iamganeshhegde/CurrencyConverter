@@ -6,7 +6,7 @@ import com.example.currencyconverter.R
 import java.util.*
 
 
-class FirstMainActivity:AppCompatActivity() {
+class FirstMainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,11 +16,22 @@ class FirstMainActivity:AppCompatActivity() {
 //        this.cacheDir.deleteRecursively()
     }
 
+    companion object{
+
+    }
+
+    object abc {
+        fun a() {
+
+        }
+    }
+
 
 }
 
 fun main() {
 
+    FirstMainActivity.abc.a()
 
 //    var intersection = intersection(intArrayOf(4, 9, 5), intArrayOf(9, 4, 9, 8, 4))
 //
@@ -28,31 +39,31 @@ fun main() {
 //        println(it)
 //    }
 
-    var first = intArrayOf(1,9,3,4)
-    var second = intArrayOf(8,7,6,5)
-
-    var nest = arrayOf(intArrayOf(1,2,3), intArrayOf(7,1,9), intArrayOf(7,3,5), intArrayOf(5,6,7))
-
-
-    Arrays.sort(nest){
-        one,two -> one[1]- two[1]
-    }
-
-
-    first.iterator().forEach {
-        println(it)
-    }
-
-    println()
-
-    nest.iterator().forEach {
-        it.iterator().forEach {
-                char ->
-            print(char)
-        }
-        println()
-
-    }
+//    var first = intArrayOf(1,9,3,4)
+//    var second = intArrayOf(8,7,6,5)
+//
+//    var nest = arrayOf(intArrayOf(1,2,3), intArrayOf(7,1,9), intArrayOf(7,3,5), intArrayOf(5,6,7))
+//
+//
+//    Arrays.sort(nest){
+//        one,two -> one[1]- two[1]
+//    }
+//
+//
+//    first.iterator().forEach {
+//        println(it)
+//    }
+//
+//    println()
+//
+//    nest.iterator().forEach {
+//        it.iterator().forEach {
+//                char ->
+//            print(char)
+//        }
+//        println()
+//
+//    }
 
 //
 //    for (i in 0 .. 8) {
@@ -72,6 +83,41 @@ fun main() {
 //    }
 
 
+    var numberOfLines = numberOfLines(
+        intArrayOf(
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10
+        ), "bbbcccdddaaa"
+    )
+
+
+    numberOfLines.iterator().forEach {
+        println(it)
+    }
 
 }
 
@@ -81,13 +127,13 @@ fun intersection(nums1: IntArray, nums2: IntArray): IntArray {
     var intArray = mutableListOf<Int>()
 
 
-    for(i in 0 until nums1.size) {
+    for (i in 0 until nums1.size) {
         hashSet.add(i)
     }
 
-    for(i in 0 until nums2.size) {
-        if(hashSet.contains(nums2[i])) {
-            if(intArray.contains(nums2[i]).not()) {
+    for (i in 0 until nums2.size) {
+        if (hashSet.contains(nums2[i])) {
+            if (intArray.contains(nums2[i]).not()) {
                 intArray.add(nums2[i])
             }
 
@@ -201,3 +247,66 @@ fun maximumUnitss(boxTypes: Array<IntArray>, truckSize: Int): Int {
 //    }
 //    return ans
 //}
+
+
+//fun numberOfLines(widths: IntArray, s: String): IntArray {
+//
+//    var hashmap = mutableMapOf<Char, Int>()
+//
+//    println('a'-'a')
+//
+//
+//    for (i in 'a'..'z') {
+//        println(i)
+//        println(widths[i-'a'])
+//
+//
+//    }
+//
+//
+//    var current = 0
+//    current = hashmap.get(s.get(0))!!
+//
+//
+//
+//    return widths
+//
+//}
+
+
+fun numberOfLines(widths: IntArray, s: String): IntArray {
+
+
+    var hashmap = mutableMapOf<Char, Int>()
+
+
+    for (i in 'a'..'z') {
+        hashmap[i] = widths[i - 'a']
+    }
+
+    var currentLineLength = 0
+    var current = 0
+    var currentLines = 0
+
+    var i =0
+    while (i < s.length) {
+
+        current = hashmap.get(s.get(i))!!
+
+        if (currentLineLength + current > 100) {
+            currentLineLength = 0
+            currentLines++
+
+        } else if (currentLineLength + current <= 100) {
+            currentLineLength = currentLineLength + current
+            i++
+        }
+
+
+    }
+
+    val intArray = intArrayOf(currentLines + 1, currentLineLength)
+
+    return intArray
+
+}
