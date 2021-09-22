@@ -2,7 +2,9 @@ package com.example.currencyconverter.miscellaneous.newactivities
 
 import android.os.Build
 import androidx.annotation.RequiresApi
+import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 
 class NextGreatElement {
@@ -20,6 +22,18 @@ fun main() {
     }
 
 
+    val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+    var testDate = dateFormat.parse("12/09/2021")
+
+
+    var testCalendar = Calendar.getInstance(TimeZone.getTimeZone("PST"))
+    testCalendar.time = testDate
+
+    val msDiff: Long = Calendar.getInstance().getTimeInMillis() - testCalendar.getTimeInMillis()
+    val daysDiff: Long = TimeUnit.MILLISECONDS.toDays(msDiff)
+
+
+    println(daysDiff)
 
 
 }
