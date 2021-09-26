@@ -1,12 +1,23 @@
 package com.example.currencyconverter.miscellaneous.newactivities
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import java.util.*
 
 
 class SelfDividingNumber {
 }
 
+@RequiresApi(Build.VERSION_CODES.N)
 fun main() {
+
+    selfDividingNumberss(12, 12)?.iterator()?.forEachRemaining {
+        println(it)
+    }
+
+    println()
+    var int = 1
+    println(int/10)
 
 }
 
@@ -32,7 +43,7 @@ fun selfDividingNumberss(left: Int, right: Int): List<Int>? {
         var j = i
         while (j > 0) {
             if (j % 10 == 0 || i % (j % 10) != 0) break
-            j /= 10
+            j = j.div(10)
         }
         if (j == 0) list.add(i)
     }
