@@ -49,3 +49,9 @@ fun selfDividingNumberss(left: Int, right: Int): List<Int>? {
     }
     return list
 }
+
+fun aaa() {
+    var intArray = IntArray(10)
+    var arraylist = mutableListOf<Int>()
+    intArray[0] = Math.abs(Math.min(arraylist[0] - 0, arraylist[1]-0))
+}
