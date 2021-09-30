@@ -75,6 +75,8 @@
 
         <service android:name=".miscellaneous.serviceLearning.MyService"/>
 
+        <service android:name=".miscellaneous.serviceLearning.BoundService"/>
+
         <activity android:name=".ResultActivity"/>
     </application>
 

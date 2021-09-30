@@ -1,12 +1,25 @@
 package com.example.currencyconverter.adobeInterview
 
+import android.content.ComponentName
+import android.content.Context
+import android.content.Intent
+import android.content.ServiceConnection
 import android.os.Bundle
+import android.os.IBinder
 import androidx.appcompat.app.AppCompatActivity
 import com.example.currencyconverter.R
+import com.example.currencyconverter.miscellaneous.serviceLearning.BoundService
+import kotlinx.android.synthetic.main.activity_first.*
+import kotlinx.android.synthetic.main.activity_first_main.*
+import kotlinx.android.synthetic.main.activity_first_main.startService
+import kotlinx.android.synthetic.main.activity_first_main.stopService
 import java.util.*
 
 
 class FirstMainActivity : AppCompatActivity() {
+
+    lateinit var oundService: BoundService
+    var serviceBound = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,24 +27,77 @@ class FirstMainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_first_main)
 
 //        this.cacheDir.deleteRecursively()
+
+
+        startService.setOnClickListener {
+            if(serviceBound) {
+                timestamp_text.text = oundService.getTimeStamp()
+            }
+        }
+
+
+        stopService.setOnClickListener {
+            if(serviceBound) {
+                unbindService(serviceConnection)
+                serviceBound = false
+            }
+
+            var intent = Intent(this, BoundService::class.java)
+            stopService(intent)
+        }
+
+
+
     }
 
-    companion object{
+    override fun onStart() {
+        super.onStart()
 
+        var intent = Intent(this, BoundService::class.java)
+        startService(intent)
+
+        bindService(intent,serviceConnection, Context.BIND_AUTO_CREATE)
     }
 
-    object abc {
-        fun a() {
-
+    override fun onStop() {
+        super.onStop()
+        if(serviceBound) {
+            unbindService(serviceConnection)
+            serviceBound = false
         }
     }
 
+    var serviceConnection = object : ServiceConnection {
+        override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
+            serviceBound = true
+            var mBinder:BoundService.MyNewBinder = service as BoundService.MyNewBinder
+            oundService = mBinder.service
+        }
+
+        override fun onServiceDisconnected(name: ComponentName?) {
+            serviceBound = false
+        }
+
+    }
 
 }
 
+
+//    companion object{
+//
+//    }
+//
+//    object abc {
+//        fun a() {
+//
+//        }
+//    }
+
+
+
 fun main() {
 
-    FirstMainActivity.abc.a()
+//    FirstMainActivity.abc.a()
 
 //    var intersection = intersection(intArrayOf(4, 9, 5), intArrayOf(9, 4, 9, 8, 4))
 //
