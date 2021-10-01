@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.ServiceConnection
 import android.os.Bundle
 import android.os.IBinder
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.currencyconverter.R
 import com.example.currencyconverter.miscellaneous.serviceLearning.BoundService
@@ -22,12 +23,16 @@ class FirstMainActivity : AppCompatActivity() {
     var serviceBound = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.i("Activty A", "onCreate ")
+
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_first_main)
 
 //        this.cacheDir.deleteRecursively()
 
+
+        startActivity(Intent(this, SecondActivity::class.java))
 
         startService.setOnClickListener {
             if(serviceBound) {
@@ -51,6 +56,8 @@ class FirstMainActivity : AppCompatActivity() {
     }
 
     override fun onStart() {
+        Log.i("Activty A", "onStart")
+
         super.onStart()
 
         var intent = Intent(this, BoundService::class.java)
@@ -60,6 +67,8 @@ class FirstMainActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
+        Log.i("Activty A", "onStop")
+
         super.onStop()
         if(serviceBound) {
             unbindService(serviceConnection)
@@ -79,6 +88,32 @@ class FirstMainActivity : AppCompatActivity() {
         }
 
     }
+
+
+    override fun onRestart() {
+        Log.i("Activty A", "onReStart")
+
+        super.onRestart()
+    }
+
+    override fun onResume() {
+        Log.i("Activty A", "onResume")
+
+        super.onResume()
+    }
+
+    override fun onPause() {
+        Log.i("Activty A", "onPause")
+
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        Log.i("Activty A", "onDestroy")
+
+        super.onDestroy()
+    }
+
 
 }
 
