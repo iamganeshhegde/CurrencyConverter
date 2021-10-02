@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name = "android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -56,6 +57,7 @@
 
         <activity
             android:name=".adobeInterview.FirstMainActivity"
+            android:launchMode="singleTask"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -78,6 +80,8 @@
         <service android:name=".miscellaneous.serviceLearning.MyService"/>
 
         <service android:name=".miscellaneous.serviceLearning.BoundService"/>
+
+        <service android:name=".miscellaneous.serviceLearning.ForegroundService"/>
 
         <activity android:name=".ResultActivity"/>
     </application>

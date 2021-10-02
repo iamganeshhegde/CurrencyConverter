@@ -10,10 +10,13 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.currencyconverter.R
 import com.example.currencyconverter.miscellaneous.serviceLearning.BoundService
+import com.example.currencyconverter.miscellaneous.serviceLearning.Constants
+import com.example.currencyconverter.miscellaneous.serviceLearning.ForegroundService
 import kotlinx.android.synthetic.main.activity_first.*
 import kotlinx.android.synthetic.main.activity_first_main.*
 import kotlinx.android.synthetic.main.activity_first_main.startService
 import kotlinx.android.synthetic.main.activity_first_main.stopService
+import kotlinx.android.synthetic.main.activity_first_main_services.*
 import java.util.*
 
 
@@ -27,29 +30,45 @@ class FirstMainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_first_main)
+//        setContentView(R.layout.activity_first_main)
+        setContentView(R.layout.activity_first_main_services)
+
+        button1.setOnClickListener {
+            var intent = Intent(this,ForegroundService::class.java)
+            intent.action = Constants.ACTION.STARTFOREGROUND_ACTION
+            startService(intent)
+        }
+
+        button2.setOnClickListener {
+            var intent = Intent(this,ForegroundService::class.java)
+            intent.action = Constants.ACTION.STOPFOREGROUND_ACTION
+            stopService(intent)
+        }
+
+
+
 
 //        this.cacheDir.deleteRecursively()
 
 
-        startActivity(Intent(this, SecondActivity::class.java))
+//        startActivity(Intent(this, SecondActivity::class.java))
 
-        startService.setOnClickListener {
-            if(serviceBound) {
-                timestamp_text.text = oundService.getTimeStamp()
-            }
-        }
+//        startService.setOnClickListener {
+//            if(serviceBound) {
+//                timestamp_text.text = oundService.getTimeStamp()
+//            }
+//        }
 
 
-        stopService.setOnClickListener {
-            if(serviceBound) {
-                unbindService(serviceConnection)
-                serviceBound = false
-            }
+//        stopService.setOnClickListener {
+//            if(serviceBound) {
+//                unbindService(serviceConnection)
+//                serviceBound = false
+//            }
 
-            var intent = Intent(this, BoundService::class.java)
-            stopService(intent)
-        }
+//            var intent = Intent(this, BoundService::class.java)
+//            stopService(intent)
+//        }
 
 
 
