@@ -20,3 +20,13 @@ public class RandomVehicleActivity extends AppCompatActivity {
 
     }
 }
+
+class Abcd {
+
+}
+
+
+interface add {
+
+    void abc();
+}
