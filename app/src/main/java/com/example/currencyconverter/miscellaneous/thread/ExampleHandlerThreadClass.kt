@@ -76,7 +76,6 @@ class ExampleHandlerThread:AppCompatActivity() {
 
         }
 
-
         class ExampleRunnable2:Runnable{
             override fun run() {
 
@@ -89,4 +88,5 @@ class ExampleHandlerThread:AppCompatActivity() {
 
         }
     }
+
 }
