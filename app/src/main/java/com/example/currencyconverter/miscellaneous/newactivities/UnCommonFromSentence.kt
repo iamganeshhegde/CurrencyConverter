@@ -9,9 +9,11 @@ class UnCommonFromSentence {
 
 @RequiresApi(Build.VERSION_CODES.N)
 fun main() {
-    uncommonFromSentences("s z z z s" ,"s z ejt").iterator().forEachRemaining {
-        println(it)
-    }
+//    uncommonFromSentences("s z z z s" ,"s z ejt").iterator().forEachRemaining {
+//        println(it)
+//    }
+
+    smalll()
 }
 
 @RequiresApi(Build.VERSION_CODES.N)
@@ -102,6 +104,25 @@ fun smallestRangeI(A: IntArray, K: Int): Int {
         mn = Math.min(mn, a)
     }
     return Math.max(0, mx - mn - 2 * K)
+}
+
+fun smalll() {
+    var array = intArrayOf(1,3,6)
+    var k = 3
+
+    var max = array.maxOrNull()
+    var min = array.minOrNull()
+
+
+    max = max!! - k
+    min = min!! + k
+
+    println("max $max")
+    println("min $min")
+
+    println(max-min)
+
+
 }
 
 
