@@ -94,7 +94,15 @@ fun uncommonFromSentencesa(A: String, B: String): Array<String>? {
 }
 
 
-
+fun smallestRangeI(A: IntArray, K: Int): Int {
+    var mx = A[0]
+    var mn = A[0]
+    for (a in A) {
+        mx = Math.max(mx, a)
+        mn = Math.min(mn, a)
+    }
+    return Math.max(0, mx - mn - 2 * K)
+}
 
 
 
