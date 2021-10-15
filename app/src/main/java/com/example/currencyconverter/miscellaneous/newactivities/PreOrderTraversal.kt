@@ -7,7 +7,7 @@ class PreOrderTraversal {
 }
 
 fun main() {
-
+//    deepestLeavesSum()
 }
 
 fun pre() {
@@ -37,4 +37,68 @@ fun preorderTraversal(root: TreeNode?): List<Int>? {
         if (node.left != null) stack.push(node.left)
     }
     return list
+}
+
+
+fun deepestLeavesSum(root: TreeNode?): Int {
+
+
+//    val q = LinkedList<TreeNode>()
+
+    if (root == null) {
+       return 0
+    }
+    val queue: Queue<TreeNode?> = LinkedList()
+
+    queue.offer(root)
+    var levelSum = 0
+
+    while ( queue.isNotEmpty()) {
+
+        levelSum = 0
+
+        var size = queue.size
+
+        for (i in 0 until size) {
+            var currentNode = queue.poll()
+            levelSum += currentNode!!.`val`
+
+            if(currentNode.left != null) {
+                queue.add(currentNode.left)
+            }
+
+            if(currentNode.right != null) {
+                queue.add(currentNode.right)
+            }
+        }
+
+    }
+
+    return levelSum
+
+}
+
+fun deepestLeavesSusm(root: TreeNode?): Int {
+    return if (root == null) {
+        0
+    } else {
+        var res = 0
+        val q: Queue<TreeNode?> = LinkedList()
+        q.offer(root)
+        while (!q.isEmpty()) {
+            val size = q.size
+            res = 0
+            for (i in 0 until size) {
+                val cur = q.poll()
+                res += cur!!.`val`
+                if (cur.left != null) {
+                    q.add(cur.left)
+                }
+                if (cur.right != null) {
+                    q.add(cur.right)
+                }
+            }
+        }
+        res
+    }
 }
