@@ -1,5 +1,7 @@
 package com.example.currencyconverter.miscellaneous.newactivities
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import java.util.*
 
 
@@ -114,6 +116,20 @@ fun maxCoins(A: IntArray): Int {
     while (i < n) {
         res += A[i]
         i += 2
+    }
+    return res
+}
+
+@RequiresApi(Build.VERSION_CODES.N)
+fun findingUsersActiveMinutes(logs: Array<IntArray>, k: Int): IntArray? {
+    val res = IntArray(k)
+    val map: MutableMap<Int, MutableSet<Int>> = HashMap()
+    for (l in logs) {
+        map.putIfAbsent(l[0], HashSet())
+        map[l[0]]!!.add(l[1])
+    }
+    for (key in map.keys) {
+        res[map[key]!!.size - 1]++
     }
     return res
 }
