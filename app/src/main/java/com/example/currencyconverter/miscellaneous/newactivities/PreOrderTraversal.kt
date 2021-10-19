@@ -131,5 +131,28 @@ fun findingUsersActiveMinutes(logs: Array<IntArray>, k: Int): IntArray? {
     for (key in map.keys) {
         res[map[key]!!.size - 1]++
     }
+
+    var b = BBB()
+
     return res
+
+
+
+}
+
+
+class Slaary(){
+    var salary:Int = 0
+}
+
+abstract class ABC {
+
+}
+
+class A : ABC() {
+
+}
+
+private class BBB{
+
 }
