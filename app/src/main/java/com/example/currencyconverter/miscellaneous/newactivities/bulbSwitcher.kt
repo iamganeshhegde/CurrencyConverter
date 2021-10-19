@@ -4,7 +4,7 @@ class bulbSwitcher {
 }
 
 fun main() {
-    switch("10111")
+    println(switch("001011101"))
 }
 
 fun switch(target:String): Int {
