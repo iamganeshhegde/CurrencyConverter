@@ -1,5 +1,6 @@
 package com.example.currencyconverter.miscellaneous.newactivities
 
+
 class bulbSwitcher {
 }
 
@@ -19,4 +20,20 @@ fun switch(target:String): Int {
     }
 
     return res
+}
+
+class Codec {
+    var urls: MutableList<String> = ArrayList()
+
+    // Encodes a URL to a shortened URL.
+    fun encode(longUrl: String): String {
+        urls.add(longUrl)
+        return (urls.size - 1).toString()
+    }
+
+    // Decodes a shortened URL to its original URL.
+    fun decode(shortUrl: String?): String {
+        val index = Integer.valueOf(shortUrl)
+        return if (index < urls.size) urls[index] else ""
+    }
 }
