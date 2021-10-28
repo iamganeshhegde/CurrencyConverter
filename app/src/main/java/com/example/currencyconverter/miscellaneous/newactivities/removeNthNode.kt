@@ -113,8 +113,8 @@ fun printspecialElements(arr: Array<String>) {
 
 fun countValidWords(sentence: String): Int {
 
-    var array = sentence.split(" +".toRegex())
-//    var array = sentence.split("\\s".toRegex())
+//    var array = sentence.split(" +".toRegex())
+    var array = sentence.split("\\s+".toRegex()) // this works
     var count = 0
 
     for(word in array) {
