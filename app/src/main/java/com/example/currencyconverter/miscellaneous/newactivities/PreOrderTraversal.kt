@@ -2,6 +2,7 @@ package com.example.currencyconverter.miscellaneous.newactivities
 
 import android.os.Build
 import androidx.annotation.RequiresApi
+import com.example.currencyconverter.c
 import java.util.*
 
 
@@ -154,5 +155,39 @@ class A : ABC() {
 }
 
 private class BBB{
+
+}
+
+
+fun maxDepth(root: TreeNode?): Int {
+
+    var root = root
+    var queue = LinkedList<TreeNode>()
+
+//    var stack =Stack<TreeNode>()
+
+    queue.offer(root)
+    var count =0
+
+
+    while(queue.isNotEmpty()) {
+
+        var size = queue.size
+        while (size-- >0) {
+             var current = queue.poll()
+            if(current?.left != null) {
+                queue.offer(current.left)
+            }
+
+            if(current?.right != null) {
+                queue.offer(current.right)
+            }
+        }
+
+        count++
+
+    }
+
+    return count
 
 }
