@@ -22,7 +22,6 @@ class ExampleHandlerThread:AppCompatActivity() {
 
         handlerThread.start()
 //        threadHandler = Handler(handlerThread.looper)
-
     }
 
     fun doWork(view: View) {
