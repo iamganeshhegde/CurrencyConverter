@@ -41,7 +41,43 @@ fun main() {
     var answerArray = answer.toIntArray()
 
 
-    answerArray.iterator().forEach {
+//    answerArray.iterator().forEach {
+//        println(it)
+//    }
+
+
+    intersection()
+}
+
+
+fun intersection() {
+
+//    var array = intArrayOf(4,5,9)
+    var array = intArrayOf(1,2,3,4)
+
+//    var second = intArrayOf(4,4,8,9,9)
+    var second = intArrayOf(1,2,2,2)
+
+    var answer = mutableListOf<Int>()
+
+    var i=0
+    var j=0
+
+
+    while(i < array.size && j<second.size) {
+        if(array[i] == second[j]) {
+            answer.add(array[i])
+            i++
+            j++
+
+        } else if(array[i] < second[j]) {
+            i++
+        }else if(array[i] > second[j]) {
+            j++
+        }
+    }
+
+    answer.iterator().forEach {
         println(it)
     }
 
