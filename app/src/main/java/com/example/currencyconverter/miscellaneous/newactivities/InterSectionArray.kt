@@ -46,7 +46,11 @@ fun main() {
 //    }
 
 
-    intersection()
+//    intersection()
+
+//    findTwoSum()
+
+    array()?.iterator()?.forEach { println(it) }
 }
 
 
@@ -81,5 +85,53 @@ fun intersection() {
         println(it)
     }
 
+
+}
+
+fun findTwoSum() {
+    var array = intArrayOf(1,2,5,6)
+    var targe = 3
+    var answer = IntArray(2)
+    var hashmap = mutableMapOf<Int,Int>()
+
+    for (i in 0 until array.size){
+        hashmap.put(i,array[i])
+
+    }
+
+    for (i in array.indices) {
+
+        if( hashmap.contains(targe - array[i])) {
+            answer[0] = array[i]
+            answer[1] = hashmap.keys.find { it == targe-array[i] }!!
+            break
+        }
+
+    }
+
+    answer.iterator().forEach {
+        println(it)
+    }
+}
+
+fun array(): IntArray? {
+    var array = intArrayOf(1,2,5,6)
+    var targe = 3
+    var answer = IntArray(2)
+    var hashmap = mutableMapOf<Int,Int>()
+
+    for (i in 0 until array.size){
+
+        var compl = targe-array[i]
+
+        if(hashmap.containsKey(compl)) {
+            return intArrayOf(i, hashmap.get(compl)!!)
+        }
+
+        hashmap.put(array[i],i)
+
+    }
+
+    return null
 
 }
