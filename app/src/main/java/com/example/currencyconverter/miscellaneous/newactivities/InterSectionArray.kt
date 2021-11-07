@@ -4,9 +4,6 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 
 class InterSectionArray {
-
-
-
 }
 
 @RequiresApi(Build.VERSION_CODES.N)
