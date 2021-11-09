@@ -51,7 +51,7 @@ class FirstMainActivity : AppCompatActivity() {
 //        this.cacheDir.deleteRecursively()
 
 
-//        startActivity(Intent(this, SecondActivity::class.java))
+        startActivity(Intent(this, SecondActivity::class.java))
 
 //        startService.setOnClickListener {
 //            if(serviceBound) {
