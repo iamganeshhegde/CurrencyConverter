@@ -131,6 +131,8 @@
 
         <activity android:name=".adobeInterview.SecondActivity"/>
 
+        <activity android:name=".asynctask.AsyncTaskActivity"/>
+
         <service android:name=".serviceexample.ServiceWithoutBinder"/>
 
         <service android:name=".serviceexample.ServiceDemo"

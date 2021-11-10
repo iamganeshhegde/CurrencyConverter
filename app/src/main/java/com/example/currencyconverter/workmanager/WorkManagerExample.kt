@@ -1,12 +1,14 @@
 package com.example.currencyconverter.workmanager
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.work.*
 import com.example.currencyconverter.R
+import com.example.currencyconverter.asynctask.AsyncTaskActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_work_manager_example.*
 import org.greenrobot.eventbus.EventBus
@@ -45,9 +47,15 @@ class WorkManagerExample:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_work_manager_example)
 
+//        Work manager code
+//        btn_download.setOnClickListener {
+//            startWorker()
+//        }
+
         btn_download.setOnClickListener {
-            startWorker()
+            startActivity(Intent(this,AsyncTaskActivity::class.java))
         }
+
     }
 
     private fun startWorker() {
