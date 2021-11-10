@@ -108,7 +108,7 @@
            </intent-filter>
        </activity>-->
 
-        <activity
+        <!--<activity
            android:name=".miscellaneous.thread.ExampleHandlerThread"
            android:exported="true">
            <intent-filter>
@@ -116,7 +116,17 @@
 
                <category android:name="android.intent.category.LAUNCHER" />
            </intent-filter>
-       </activity>
+       </activity>-->
+
+        <activity
+            android:name=".workmanager.WorkManagerExample"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
 
         <activity android:name=".adobeInterview.SecondActivity"/>
