@@ -51,7 +51,7 @@ class ImageDownloadWorker(conntext: Context, workParams: WorkerParameters) :
             ImageUtil.saveBitmap(applicationContext, bitmap, image.title).subscribe({ img ->
 
                 displayNotification(ProgressUpdateEvent(image.title, 3, index + 1))
-                EventBus.getDefault().post(ImageDownloadedEvent(image, image.title, image.id))
+                EventBus.getDefault().post(ImageDownloadedEvent(img, image.title, image.id))
 
             }, {
 

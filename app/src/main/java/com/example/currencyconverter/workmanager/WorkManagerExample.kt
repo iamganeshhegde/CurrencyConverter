@@ -2,6 +2,7 @@ package com.example.currencyconverter.workmanager
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.work.*
@@ -12,6 +13,7 @@ import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import java.io.File
+private const val TAG = "WorkManagerExample"
 
 class WorkManagerExample:AppCompatActivity() {
     val jsonString: String = "[\n" +
@@ -71,6 +73,7 @@ class WorkManagerExample:AppCompatActivity() {
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onEvent(imageDownloadedEvent: ImageDownloadedEvent) {
         val file = File("${imageDownloadedEvent.image}/${imageDownloadedEvent.title}")
+        Log.d(TAG, "onEvent: "+file.path)
         when (imageDownloadedEvent.id) {
             "1" -> Picasso.get().load(file).into(iv_1)
             "2" -> Picasso.get().load(file).into(iv_2)
@@ -89,4 +92,4 @@ class WorkManagerExample:AppCompatActivity() {
     }
 }
 
-data class ImageDownloadedEvent(var image:Image, var title:String,var id:String)
+data class ImageDownloadedEvent(var image:String, var title:String,var id:String)
