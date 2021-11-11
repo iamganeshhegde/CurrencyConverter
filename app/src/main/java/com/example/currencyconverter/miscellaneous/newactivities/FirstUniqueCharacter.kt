@@ -28,3 +28,24 @@ fun main() {
     }
 
 }
+
+@RequiresApi(Build.VERSION_CODES.N)
+fun isAnagram(s: String, t: String): Boolean {
+
+    var hashmap = mutableMapOf<Char,Int>()
+
+    for(i in 0 until s.length) {
+        hashmap.put(s[i], hashmap.getOrDefault(s[i],0)+1)
+    }
+
+    for(i in 0 until t.length) {
+        if(hashmap.contains(t[i]) && hashmap[t[i]]!! >= 1 ) {
+            hashmap.put(t[i], hashmap.get(t[i])!!-1)
+        } else {
+            return false
+        }
+    }
+
+
+    return true
+}
