@@ -1,15 +1,13 @@
-package com.example.currencyconverter.adobeInterview
+package com.example.currencyconverter.adInterview
 
-import android.content.Intent
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.provider.AlarmClock
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+
 import com.example.currencyconverter.R
 
 
@@ -21,10 +19,11 @@ class SecondActivity:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
-        val fragmentManager: android.app.FragmentManager? = fragmentManager
-        val fragmentTransaction: android.app.FragmentTransaction? = fragmentManager?.beginTransaction()
+        val fragmentManager: FragmentManager = supportFragmentManager
+        val fragmentTransaction: FragmentTransaction? = fragmentManager?.beginTransaction()
         val hello = SecondFragment()
         fragmentTransaction?.add(R.id.fragment_container, hello, "HELLO")
+//        fragmentTransaction?.add(R.id.fragment_container, hello, "HELLO")
         fragmentTransaction?.commit()
 
 
@@ -96,4 +95,53 @@ class SecondActivity:AppCompatActivity() {
 
         super.onDestroy()
     }
+}
+
+
+fun main() {
+
+
+}
+
+
+interface aa {
+    fun abc() {
+        println("abc")
+    }
+    fun a()
+}
+
+abstract class abs {
+    fun abs1() {
+
+    }
+
+    abstract fun abs2()
+}
+
+interface bb {
+    fun b()
+}
+
+interface cc :aa,bb {
+    fun c()
+}
+
+class inter():cc {
+    override fun c() {
+        TODO("Not yet implemented")
+    }
+
+    override fun abc() {
+        TODO("Not yet implemented")
+    }
+
+    override fun a() {
+        TODO("Not yet implemented")
+    }
+
+    override fun b() {
+        TODO("Not yet implemented")
+    }
+
 }

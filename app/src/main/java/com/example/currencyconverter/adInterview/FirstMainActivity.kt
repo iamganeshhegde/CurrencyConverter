@@ -1,4 +1,4 @@
-package com.example.currencyconverter.adobeInterview
+package com.example.currencyconverter.adInterview
 
 import android.content.ComponentName
 import android.content.Context
@@ -12,10 +12,6 @@ import com.example.currencyconverter.R
 import com.example.currencyconverter.miscellaneous.serviceLearning.BoundService
 import com.example.currencyconverter.miscellaneous.serviceLearning.Constants
 import com.example.currencyconverter.miscellaneous.serviceLearning.ForegroundService
-import kotlinx.android.synthetic.main.activity_first.*
-import kotlinx.android.synthetic.main.activity_first_main.*
-import kotlinx.android.synthetic.main.activity_first_main.startService
-import kotlinx.android.synthetic.main.activity_first_main.stopService
 import kotlinx.android.synthetic.main.activity_first_main_services.*
 import java.util.*
 

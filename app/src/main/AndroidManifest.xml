@@ -129,7 +129,7 @@
         </activity>
 
 
-        <activity android:name=".adobeInterview.SecondActivity"/>
+        <activity android:name=".adInterview.SecondActivity"/>
 
         <activity android:name=".asynctask.AsyncTaskActivity"/>
 

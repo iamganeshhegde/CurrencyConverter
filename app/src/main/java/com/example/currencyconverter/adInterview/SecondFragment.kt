@@ -1,8 +1,6 @@
-package com.example.currencyconverter.adobeInterview
+package com.example.currencyconverter.adInterview
 
-import android.animation.Animator
 import android.app.Activity
-import android.app.Fragment
 import android.content.Context
 import android.os.Bundle
 import android.util.AttributeSet
@@ -10,10 +8,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
 import com.example.currencyconverter.R
 
-class SecondFragment: Fragment() {
+class SecondFragment: androidx.fragment.app.Fragment() {
 
     override fun onInflate(context: Context, attrs: AttributeSet, savedInstanceState: Bundle?) {
         Log.i("Activty B Fragment", "onInflate" )
@@ -26,11 +23,11 @@ class SecondFragment: Fragment() {
         super.onInflate(Activty, attrs, savedInstanceState)
     }
 
-    override fun onAttachFragment(childFragment: Fragment) {
+    /*override fun onAttachFragment(childFragment: Fragment) {
         Log.i("Activty B Fragment", "onAttachFragment" )
 
         super.onAttachFragment(childFragment)
-    }
+    }*/
 
     override fun onAttach(context: Context) {
         Log.i("Activty B Fragment", "onAttach" )

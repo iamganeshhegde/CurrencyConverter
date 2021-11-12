@@ -9,6 +9,10 @@ android {
     compileSdk 30
     buildToolsVersion "30.0.3"
 
+    dataBinding {
+        enabled = true
+    }
+
     defaultConfig {
         applicationId "com.example.currencyconverter"
         minSdk 21
