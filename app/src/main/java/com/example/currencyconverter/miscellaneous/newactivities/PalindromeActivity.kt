@@ -32,7 +32,7 @@ fun isPalindrome(s: String): Boolean {
 
     var string = s
     var regex = Regex("[^A-Za-z0-9]")
-    var replace = regex.replace(string, "").lowercase(Locale.getDefault())
+    var replace = regex.replace(string,"").lowercase(Locale.getDefault())
 
     var i=0
     var j=replace.length-1
