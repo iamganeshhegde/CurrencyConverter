@@ -51,3 +51,15 @@ fun isPalindrome(s: String): Boolean {
     return true
 
 }
+
+fun countAndSay() {
+
+    var string = "1"
+    string[0]
+
+    var builder = StringBuilder()
+
+    builder.append(1)
+
+    var a = builder.toString()
+}
