@@ -44,6 +44,9 @@ class ExampleHandlerThreadThread:HandlerThread(TAGS, Process.THREAD_PRIORITY_BAC
         return handler
     }
 
+    override fun run() {
+        super.run()
+    }
 
 
 }

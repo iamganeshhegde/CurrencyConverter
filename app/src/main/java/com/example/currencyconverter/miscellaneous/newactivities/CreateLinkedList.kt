@@ -44,5 +44,34 @@ fun main() {
     list.insert(8)
 
 
-    list.print()
+//    list.print()
+//
+//    reverseArray()
+
+    itemChanged()
+}
+
+
+
+fun reverseArray() {
+    var array = intArrayOf(1,2,3,4,5,6,7,8,9)
+
+    var a:((Int,Int) ->Int) = {first:Int, second:Int -> first+second }
+
+    println(a(10,20))
+
+}
+
+
+fun itemChanged() {
+    var arraylist = mutableListOf<Int>(5,9,2,3,4,5,6,7,8)
+
+
+    arraylist.forEachIndexed { index, i ->
+        print(index)
+
+        println(i)
+    }
+
+
 }
