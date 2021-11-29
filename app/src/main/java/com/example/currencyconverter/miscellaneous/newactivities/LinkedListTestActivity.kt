@@ -13,6 +13,8 @@ fun main() {
 
 }
 
+
+
 fun reverseList(list: LinkedList<Int>) {
 
 //    while (list.)
