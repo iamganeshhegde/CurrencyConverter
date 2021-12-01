@@ -20,6 +20,9 @@ fun reverseList(list: LinkedList<Int>) {
 
 
 
+
+
+
 }
 
 fun kk(head:LinkedList<Int>){
