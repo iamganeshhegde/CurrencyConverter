@@ -49,3 +49,36 @@ fun isValidBST(root: TreeNode?): Boolean {
     }
     return true
 }
+
+internal class Solution(private var array: IntArray) {
+    private var original: IntArray
+    private val rand = Random()
+    private val arrayCopy: MutableList<Int>
+        private get() {
+            val asList: MutableList<Int> = ArrayList()
+            for (i in array.indices) {
+                asList.add(array[i])
+            }
+            return asList
+        }
+
+    fun reset(): IntArray {
+        array = original
+        original = original.clone()
+        return array
+    }
+
+    fun shuffle(): IntArray {
+        val aux = arrayCopy
+        for (i in array.indices) {
+            val removeIdx = rand.nextInt(aux.size)
+            array[i] = aux[removeIdx]
+            aux.removeAt(removeIdx)
+        }
+        return array
+    }
+
+    init {
+        original = array.clone()
+    }
+}
