@@ -81,4 +81,6 @@ internal class Solution(private var array: IntArray) {
     init {
         original = array.clone()
     }
+
+
 }
