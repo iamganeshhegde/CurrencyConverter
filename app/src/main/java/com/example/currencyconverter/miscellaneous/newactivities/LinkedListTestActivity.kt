@@ -84,3 +84,26 @@ internal class Solution(private var array: IntArray) {
 
 
 }
+
+fun duplicateZeros(arr: IntArray) {
+    var countZero = 0
+    for (i in arr.indices) {
+        if (arr[i] == 0) countZero++
+    }
+    val len = arr.size + countZero
+    //We just need O(1) space if we scan from back
+    //i point to the original array, j point to the new location
+    var i = arr.size - 1
+    var j = len - 1
+    while (i < j) {
+        if (arr[i] != 0) {
+            if (j < arr.size) arr[j] = arr[i]
+        } else {
+            if (j < arr.size) arr[j] = arr[i]
+            j--
+            if (j < arr.size) arr[j] = arr[i] //copy twice when hit '0'
+        }
+        i--
+        j--
+    }
+}
