@@ -107,3 +107,17 @@ fun duplicateZeros(arr: IntArray) {
         j--
     }
 }
+
+fun sortArrayByParity(A: IntArray): IntArray? {
+    var i = 0
+    var j = 0
+    while (j < A.size) {
+        if (A[j] % 2 == 0) {
+            val tmp = A[i]
+            A[i++] = A[j]
+            A[j] = tmp
+        }
+        j++
+    }
+    return A
+}
