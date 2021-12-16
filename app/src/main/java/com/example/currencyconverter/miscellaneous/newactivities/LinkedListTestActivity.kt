@@ -123,3 +123,38 @@ fun sortArrayByParity(A: IntArray): IntArray? {
     }
     return A
 }
+
+
+fun replaceElementss(arr: IntArray): IntArray {
+
+    /*if (arr.size < 2) {
+        return arr
+    }
+
+    var max = arr[0]
+    var answerArray = IntArray(arr.size) {
+        -1
+    }
+
+    for (i in 0 until arr.size - 1) {
+
+        if ()
+
+    }*/
+
+
+    for(i in arr.size-1 downTo 0) {
+
+    }
+}
+
+fun replaceElements(A: IntArray): IntArray? {
+    var i = A.size - 1
+    var mx = -1
+    while (i >= 0) {
+        mx = Math.max(A[i], mx.also { A[i] = it })
+        --i
+    }
+    return A
+}
+
