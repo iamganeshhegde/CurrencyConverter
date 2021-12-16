@@ -108,6 +108,8 @@ fun duplicateZeros(arr: IntArray) {
     }
 }
 
+
+
 fun sortArrayByParity(A: IntArray): IntArray? {
     var i = 0
     var j = 0
