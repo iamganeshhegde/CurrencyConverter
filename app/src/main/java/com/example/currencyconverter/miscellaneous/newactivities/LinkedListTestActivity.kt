@@ -125,7 +125,7 @@ fun sortArrayByParity(A: IntArray): IntArray? {
 }
 
 
-fun replaceElementss(arr: IntArray): IntArray {
+fun replaceElementss(arr: IntArray){
 
     /*if (arr.size < 2) {
         return arr
@@ -143,9 +143,26 @@ fun replaceElementss(arr: IntArray): IntArray {
     }*/
 
 
-    for(i in arr.size-1 downTo 0) {
+//    var max = -1
+//
+//    for(i in arr.size-1 downTo 0) {
+//        if(arr[i] > max) {
+//            max = arr[i]
+//        }
+//        arr[i] = max
+//    }
 
+
+    var mx = -1
+    val n: Int = arr.size
+    var a: Int
+    for (i in n - 1 downTo 0) {
+        a = arr[i]
+        arr[i] = mx
+        mx = Math.max(mx, a)
     }
+//    return A
+
 }
 
 fun replaceElements(A: IntArray): IntArray? {
